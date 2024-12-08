@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_3d_controller/flutter_3d_controller.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:testproject/models/category_model.dart';
 
@@ -6,6 +7,10 @@ class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   List<CategoryModel> categories = [];
+
+  Flutter3DController controller = Flutter3DController();
+  String? chosenAnimation;
+  String? chosenTexture;
 
   void _getInitialInfo() {
     categories = CategoryModel.getCategories();
@@ -24,6 +29,7 @@ class HomePage extends StatelessWidget {
           const SizedBox(height : 40),
           _categoriesSection(),
           const SizedBox(height : 40),
+          const SizedBox(height : 400, child: Flutter3DViewer(src: 'assets/models/car.glb'))
         ],
       ),
     );
@@ -45,7 +51,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height : 15),
-            Container(
+            SizedBox(
               height: 120,
               child: ListView.separated(
                 itemCount: categories.length,
@@ -119,7 +125,7 @@ class HomePage extends StatelessWidget {
                 padding: const EdgeInsets.all(12.0),
                 child: SvgPicture.asset('assets/icons/search.svg'),
               ),
-              suffixIcon: Container(
+              suffixIcon: SizedBox(
                 width: 100,
                 child: IntrinsicHeight(
                   child: Row(
