@@ -22,7 +22,8 @@ class HomePage extends StatelessWidget {
         children: [
           _searchField(),
           const SizedBox(height : 40),
-          _categoriesSection()
+          _categoriesSection(),
+          const SizedBox(height : 40),
         ],
       ),
     );
@@ -49,8 +50,8 @@ class HomePage extends StatelessWidget {
               child: ListView.separated(
                 itemCount: categories.length,
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.only(left: 20, right: 20),
-                separatorBuilder: (context, index) => SizedBox(width : 25),
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                separatorBuilder: (context, index) => const SizedBox(width : 25),
                 itemBuilder: (context, index) {
                   return Container(
                     width: 100,
@@ -64,7 +65,7 @@ class HomePage extends StatelessWidget {
                         Container(
                           width: 50,
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                             shape: BoxShape.circle
                           ),
@@ -75,7 +76,7 @@ class HomePage extends StatelessWidget {
                         ),
                         Text(
                           categories[index].name,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.w400,
                             color: Colors.black,
                             fontSize: 14
