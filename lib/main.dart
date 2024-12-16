@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testproject/pages/home.dart';
+import 'package:testproject/pages/settings.dart';
+import 'package:testproject/pages/map.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,13 +10,18 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: HomePage()
+      initialRoute: '/home',
+      routes: {
+        '/home': (context) => const HomePage(),
+        '/settings': (context) => const SettingsPage(),
+        '/map': (context) => const MapPage(),
+      },
+
     );
   }
 }
